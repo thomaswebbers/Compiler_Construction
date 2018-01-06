@@ -1,0 +1,8 @@
+*.swp
+lib/
+build.log
+bin/
+obj/
+bootstrap.log
+*.pyc
+coco.tar.gz
