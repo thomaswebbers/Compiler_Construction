@@ -23,23 +23,23 @@ run() {
 
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  DEPS="build-essential wget git cmake ninja-build python3 virtualenv libtinfo-dev zlib1g-dev"
-  echo "[+] Installing dependencies: $DEPS"
-  run sudo apt-get install --assume-yes $DEPS
-  jobs=`nproc`
-  [ "$jobs" -eq 0 ] && jobs=1
+    DEPS="build-essential wget git cmake ninja-build python3 virtualenv libtinfo-dev zlib1g-dev"
+    echo "[+] Installing dependencies: $DEPS"
+    run sudo apt-get install --assume-yes $DEPS
+    jobs=`nproc`
+    [ "$jobs" -eq 0 ] && jobs=1
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  if ! [ -x "$(command -v brew)" ]; then
-    # Install xcode cli: xcode-select --install
-    echo "[+] Installing homebrew"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  fi
-  DEPS="wget git cmake ninja python3"
-  echo "[+] Installing dependencies: $DEPS"
-  brew install $DEPS || true
-  pip3 install virtualenv || true
-  jobs=`sysctl -n hw.ncpu`
-  [ "$jobs" -eq 0 ] && jobs=1
+    if ! [ -x "$(command -v brew)" ]; then
+        # Install xcode cli: xcode-select --install
+        echo "[+] Installing homebrew"
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+    DEPS="wget git cmake ninja python3"
+    echo "[+] Installing dependencies: $DEPS"
+    brew install $DEPS || true
+    pip3 install virtualenv || true
+    jobs=`sysctl -n hw.ncpu`
+    [ "$jobs" -eq 0 ] && jobs=1
 fi
 
 
