@@ -77,3 +77,4 @@ handin-2:
 
 handin-3:
 	echo "Creating tarball for assignment 3"
+	tar -cvz --exclude='*.o' --exclude='obj/' -f handin-3.tar.gz llvm-passes runtime
