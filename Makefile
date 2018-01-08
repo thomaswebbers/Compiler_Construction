@@ -63,7 +63,7 @@ clean:
 .PHONY: cleaner
 cleaner: clean
 	rm -rf lib
-	rm handin-1.tar.gz handin-2.tar.gz handin-3.tar.gz
+	rm -f handin-1.tar.gz handin-2.tar.gz handin-3.tar.gz
 
 .PHONY: handin-1 handin-2 handin-3
 
